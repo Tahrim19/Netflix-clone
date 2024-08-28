@@ -5,16 +5,15 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import InfoIcon from '@mui/icons-material/Info';
 
 export default function Home() {
-  const [movie, setMovie] = useState(null);  
+  const [movie, setMovie] = useState(null);
+  const [showFullText, setShowFullText] = useState(false);  
 
   const APIKEY = process.env.REACT_APP_API_KEY;
 
   const fetchData = async () => {
     try {
       const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}`);
-      
       const randomMovie = response.data.results[Math.floor(Math.random() * response.data.results.length)];
-      
       setMovie(randomMovie);  
     } catch (error) {
       console.error("Failed to fetch data:", error);
@@ -31,7 +30,13 @@ export default function Home() {
     ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` 
     : '';  // Fallback if not available
 
-  console.log(movie);
+  // Truncate the overview if it's too long
+  const truncateText = (text, maxLength) => {
+    if (text?.length > maxLength) {
+      return `${text.substring(0, maxLength)}...`;
+    }
+    return text;
+  };
 
   return (
     <>
@@ -47,20 +52,31 @@ export default function Home() {
         }}
       >
         <div className='cover-info' style={{ padding: '20px' }}>
-          <h1>{movie?.title}</h1>
-          <p>{movie?.overview}</p>
+          <h3>{movie?.title}</h3>
+          <p>
+            {showFullText ? movie?.overview : truncateText(movie?.overview, 150)}
+            {movie?.overview?.length > 150 && (
+              <span 
+                style={{ color: '#e50914', cursor: 'pointer', fontWeight: 'bold'}}
+                onClick={() => setShowFullText(!showFullText)}
+              >
+                {showFullText ? ' Show Less' : ' Read More'}
+              </span>
+            )}
+          </p>
         </div>
+
         <div className='buttons'>
-          <button className='play-btn'><PlayArrowIcon/> Play</button>
-          <button className='info-btn'><InfoIcon/> More Info</button>
+          <button className='play-btn'><PlayArrowIcon/>Play</button>
+          <button className='info-btn'><InfoIcon/>More Info</button>
         </div>
       </div>
-      <h2 className='content'>
-      ajkdb
-      bwjkbwjkc
-      sjkcbwj
-      jhvcwej vcwejkv
-      cjsvcjhwe</h2>
+
+      <div className='content'>
+        <h2>Additional Content</h2>
+        <p>More sections like Trending Movies, etc. can go here.</p>
+      </div>
+      
     </>
   );
 }
