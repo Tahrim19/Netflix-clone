@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';  
 import '../css/home.css';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import InfoIcon from '@mui/icons-material/Info';
 
 export default function Home() {
   const [movie, setMovie] = useState(null);  
@@ -11,10 +13,9 @@ export default function Home() {
     try {
       const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}`);
       
-      // Select a random movie from the list or the first one (for a different movie each time you refresh)
       const randomMovie = response.data.results[Math.floor(Math.random() * response.data.results.length)];
       
-      setMovie(randomMovie);  // Set the selected movie in state
+      setMovie(randomMovie);  
     } catch (error) {
       console.error("Failed to fetch data:", error);
       alert("Failed to fetch data");
@@ -25,32 +26,41 @@ export default function Home() {
     fetchData(); 
   }, []);
 
-  // Construct the backdrop image URL
+  // backdrop image URL
   const imageUrl = movie?.backdrop_path 
     ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` 
-    : '';  // Fallback if no backdrop is available
+    : '';  // Fallback if not available
 
   console.log(movie);
 
   return (
-    <div>
+    <>
       <div
         className='cover'
         style={{
           backgroundSize: 'cover',
-          backgroundImage: imageUrl ? `url(${imageUrl})` : 'none',  // Dynamically set the background image
+          backgroundImage: imageUrl ? `url(${imageUrl})` : 'none',  
           backgroundPosition: 'center center',
-          transition: 'background-image 0.5s ease-in-out',  // Optional smooth transition
-          height: '100vh',  // Ensure the container has height
-          color: 'white'  // Set text color to white for better visibility
+          transition: 'background-image 0.5s ease-in-out',  
+          height: '100vh',  
+          color: 'white'  
         }}
       >
         <div className='cover-info' style={{ padding: '20px' }}>
-          {/* Display the title and description */}
           <h1>{movie?.title}</h1>
           <p>{movie?.overview}</p>
         </div>
+        <div className='buttons'>
+          <button className='play-btn'><PlayArrowIcon/> Play</button>
+          <button className='info-btn'><InfoIcon/> More Info</button>
+        </div>
       </div>
-    </div>
+      <h2 className='content'>
+      ajkdb
+      bwjkbwjkc
+      sjkcbwj
+      jhvcwej vcwejkv
+      cjsvcjhwe</h2>
+    </>
   );
 }
