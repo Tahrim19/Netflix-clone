@@ -1,38 +1,13 @@
-// import React, { useEffect } from 'react'
-// import requests from '../Requests'
-// import axios from 'axios'
-
-// export default function MoviesList() {
-//   const fetchOrignials =async () => {
-//     try{
-//       const response = await axios.get(requests.fetchNetflixOriginals)
-//       console.log(response)
-//     }
-//     catch(error){
-//       console.log(error)
-//     }
-//   }
-
-//   useEffect(() => {
-//     fetchOrignials()
-//   },[])
-
-//   return (
-//     <div className='originals'>
-//         hello
-//     </div>
-//   )
-// }
-
-
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';  
 import '../css/home.css';
 import requests from '../Requests';
-import '../css/originals.css'
+import '../css/originals.css';
 
 export default function Originals() {
   const [movies, setMovies] = useState([]);
+  const navigate = useNavigate();  
 
   const fetchOriginals = async () => {
     try {
@@ -48,12 +23,22 @@ export default function Originals() {
     fetchOriginals(); 
   }, []);
 
+  // Function to handle click and navigate to movie details
+  const handleMovieClick = (movie) => {
+    console.log(movie);
+    navigate(`/movie/${movie.id}`, { state: { movie } });  // Navigate to dynamic route with movie ID and data
+  };
+
   return (
     <div className='originals'>
       <h2>Netflix Originals</h2>
       <div className='originals-row'>
         {movies.map(movie => (
-          <div key={movie.id} className='originals-item'>
+          <div 
+            key={movie.id} 
+            className='originals-item'
+            onClick={() => handleMovieClick(movie)}  
+          >
             <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
             <p>{movie.title}</p>
           </div>
