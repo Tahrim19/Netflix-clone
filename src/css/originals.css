@@ -1,0 +1,44 @@
+.originals {
+    padding: 20px;
+    background-color: #141414; 
+    color: white;
+}
+
+.originals-row {
+    display: flex;
+    overflow-x: scroll; 
+    overflow-y: hidden;
+    gap: 10px; 
+    padding: 10px 0;
+    scrollbar-width: none; 
+}
+
+.originals-row::-webkit-scrollbar {
+    display: none;
+}
+
+
+.originals-item {
+    flex: 0 0 auto;
+    width: 150px; 
+    cursor: pointer; 
+    transition: transform 0.2s ease-in-out;
+}
+
+.originals-item img {
+    width: 100%; 
+    border-radius: 5px;
+    object-fit: cover; 
+}
+
+
+.originals-item p {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+.originals-item:hover {
+    transform: scale(1.1); 
+}
