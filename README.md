@@ -1,6 +1,5 @@
 # NETFLIX CLONE
-Live wesbite link : https://netflix-clone-chi-black.vercel.app/
-
+Live wesbite link : https://netflix-clone-ecru-chi.vercel.app/
 ## TECH STACK:
 - ReactJS
 - Material UI
