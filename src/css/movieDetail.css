@@ -1,0 +1,119 @@
+body {
+    background: #141414;
+}
+
+/* Container for the movie detail page */
+.movie-detail-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px;
+    color: white;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Movie poster styling */
+.movie-poster {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.movie-poster img {
+    width: 380px;
+    height: auto;
+    max-height: 450px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    object-fit: cover;
+}
+
+/* Movie info styling */
+.movie-info {
+    flex: 2;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Title styling */
+.movie-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #e50914;
+}
+
+/* Overview styling */
+.movie-overview {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Extra details styling */
+.movie-extra {
+    font-size: 1.1rem;
+    color: #b3b3b3;
+    margin-bottom: 10px;
+}
+
+/* Back button styling */
+.back-button {
+    width: 100px;
+    background-color: #e50914; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px; 
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #f40612; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .movie-detail-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .movie-poster {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .movie-poster img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .movie-info {
+        max-width: 100%;
+    }
+
+    .movie-title {
+        font-size: 2rem;
+    }
+
+    .movie-overview {
+        font-size: 1rem;
+    }
+
+    .movie-extra {
+        font-size: 0.9rem;
+    }
+}
