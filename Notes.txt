@@ -2,3 +2,7 @@ Concepts i learned doing this project:
 - conditional rendering
 - routing 
 - how to use MUI with ReactJS
+- useLocation hook
+- useParams hook
+
+

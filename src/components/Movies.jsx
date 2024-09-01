@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';  
-import '../css/home.css';
-import requests from '../Requests';
 import '../css/originals.css';
 
-export default function Originals() {
+export default function Movies({fetchUrl, heading}) {
   const [movies, setMovies] = useState([]);
   const navigate = useNavigate();  
 
-  const fetchOriginals = async () => {
+  const fetchMovies = async () => {
     try {
-      const response = await axios.get(requests.fetchNetflixOriginals);
+      const response = await axios.get(fetchUrl);
       setMovies(response.data.results);
     } catch (error) {
       console.error("Failed to fetch data:", error);
-      alert("Failed to fetch data");
     }
   };
 
   useEffect(() => {
-    fetchOriginals(); 
+    fetchMovies(); 
   }, []);
 
   // Function to handle click and navigate to movie details
@@ -31,7 +28,7 @@ export default function Originals() {
 
   return (
     <div className='originals'>
-      <h2>Netflix Originals</h2>
+      <h2>{heading}</h2>
       <div className='originals-row'>
         {movies.map(movie => (
           <div 
@@ -40,7 +37,6 @@ export default function Originals() {
             onClick={() => handleMovieClick(movie)}  
           >
             <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-            <p>{movie.title}</p>
           </div>
         ))}
       </div>
