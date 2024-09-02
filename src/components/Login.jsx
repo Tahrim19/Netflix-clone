@@ -41,7 +41,7 @@ useEffect(() => {
       </div>
       <div className="login-content">
         <form onSubmit={handleSubmit} className="login-form">
-          <h1>Sign In</h1>
+          <h1>Login</h1>
           <input
             type="email"
             placeholder="Email"

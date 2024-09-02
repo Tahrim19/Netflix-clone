@@ -4,5 +4,4 @@ Concepts i learned doing this project:
 - how to use MUI with ReactJS
 - useLocation hook
 - useParams hook
-
-
+- firebase authentication

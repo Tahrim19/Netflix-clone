@@ -29,6 +29,7 @@ import Home from './components/Home';
 import MovieDetail from './components/MovieDetail';
 import Login from './components/Login';
 import { auth } from './Firebase'; 
+import Signup from './components/Signup';
 
 // This component handles authentication and redirects
 function AuthWrapper({ children }) {
@@ -53,6 +54,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/signup' element={<Signup/>}/>
           <Route path='/' element={<><AuthWrapper><Header/><Home/></AuthWrapper></>}/>
           <Route path="/movie/:id" element={<><MovieDetail/></>} /> 
         </Routes>
