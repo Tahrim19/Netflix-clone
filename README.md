@@ -7,13 +7,14 @@ Welcome to the Netflix Clone! This project replicates the UI and basic functiona
 
 ## 🌟 Features
 - **Browse Movies/TV Shows** 🎥: Scroll through various categories.
-  will be making user authentication and manage profile soon.
+- **User Authentication**: Login and Signup using Firebase.
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: React.js ⚛️
 - **Styling**: CSS & MUI 
 - **Hosting**: Vercel 🌐
+- **User Authentication**: Firebase
 
 ## 🚀 Getting Started
 
@@ -35,6 +36,7 @@ Welcome to the Netflix Clone! This project replicates the UI and basic functiona
 
 Contributions are welcome! Feel free to submit a PR or open an issue.
 
+## 🎉 Acknowledgments
 The resources which helped me:
 - https://dev.to/jagadeeshkj/netflix-clone-build-20-with-react-redux-and-firebase-4kg2
 - https://aaleenmirza110.medium.com/building-the-netflix-clone-with-react-89892acd980
