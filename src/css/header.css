@@ -70,6 +70,10 @@ body {
     cursor: pointer;
 }
 
+.sign-in{
+    padding-right: 60px;
+}
+
 .header-avatar {
     margin-left: auto;  
 }

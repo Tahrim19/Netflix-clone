@@ -4,7 +4,7 @@ import '../css/home.css';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import InfoIcon from '@mui/icons-material/Info';
 import requests from '../Requests';
-import Categories from './Categories'
+import Movies from './Movies';
 
 export default function Home() {
   const [movie, setMovie] = useState(null);
@@ -72,7 +72,38 @@ export default function Home() {
       </div>
       <div className="spacer"></div>
       <div className='content'>
-        <Categories/>
+      <Movies
+      fetchUrl={requests.fetchNetflixOriginals} 
+      heading="Netflix Originals" 
+    />
+    <Movies
+      fetchUrl={requests.fetchTrending} 
+      heading="Trending Now" 
+    />
+    <Movies 
+      fetchUrl={requests.fetchPopular} 
+      heading="Popular Now" 
+    />
+    <Movies 
+      fetchUrl={requests.fetchTVShows} 
+      heading="TV Shows" 
+    />
+    <Movies 
+      fetchUrl={requests.fetchComedy} 
+      heading="Comedies" 
+    />
+    <Movies 
+      fetchUrl={requests.fetchAction} 
+      heading="Action Movies" 
+    />
+    <Movies 
+      fetchUrl={requests.fetchDocumentaries} 
+      heading="Documentaries" 
+    />
+    <Movies 
+      fetchUrl={requests.fetchHorror} 
+      heading="Horror Movies" 
+    />
       </div>
     </>
   );

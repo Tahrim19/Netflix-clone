@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #000;
+  }
+  
+  .login-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  
+  .login-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  
+  .login-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+  }
+  
+  .login-content {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 50px 40px;
+    border-radius: 10px;
+    max-width: 500px;
+  }
+  
+
+
+  .login-form h1 {
+    margin-bottom: 28px;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .login-form input::placeholder {
+    color: #8c8c8c;
+  }
+  
+  .login-form button {
+    width: 100%;
+    padding: 15px;
+    margin: 24px 0;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-form button:hover {
+    background-color: #f40612;
+  }
+  
+  .login-help {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #8c8c8c;
+  }
+  
+  .signup-link {
+    margin-top: 24px;
+    font-size: 16px;
+  }
+  
+  .signup-link a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive adjustments */
+@media (max-width: 768px) {
+    .login-content {
+      max-width: 100%;  /* Allow the form to take full width on smaller screens */
+      padding: 40px;  /* Adjust padding for smaller screens */
+    }
+  
+    .login-form h1 {
+      font-size: 28px;  /* Reduce font size on smaller screens */
+    }
+  }
